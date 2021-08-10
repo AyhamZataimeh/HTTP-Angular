@@ -1,1 +1,57 @@
-<p>log-in works!</p>
+<div class="col-xs-12 col-sm-6 col-md-4">
+    <form [formGroup]='form' (ngSubmit)='logIn(form.value)' >
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+            id='email'
+            formControlName='email' 
+             class="form-control">
+             <span 
+             *ngIf="!form.get('email').valid && form.get('email').touched"
+              class="help-block">
+              Enter Email
+            </span>
+            <span class="help-block" 
+            *ngIf="form.getError('not-exsit', 'email') ">
+                email address not found
+             
+        </span>
+     
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+            id='password'
+            formControlName='password' 
+            class="form-control"
+            type='password'
+             >
+             <span 
+             *ngIf="!form.get('password').valid && form.get('password').touched"
+              class="help-block">
+              Enter Password
+            </span>
+            <span class="help-block" 
+            *ngIf="form.getError('invalid', 'password') ">
+                wrong password
+             
+        </span>
+        </div>
+        <button 
+    
+        [disabled]='!form.valid' 
+        class="btn btn-primary">
+            Log-in
+        </button>
+
+    </form>
+   
+    <p>Don't have account?
+         <span>
+              <a routerLink='/sign-up'>
+                Sign-up
+            </a>
+        </span>
+    </p>
+</div>

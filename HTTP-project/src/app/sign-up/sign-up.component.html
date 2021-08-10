@@ -1,0 +1,97 @@
+<div class="col-xs-12 col-sm-6 col-md-4">
+    <form [formGroup]='myForm' (ngSubmit)='submit(myForm.value)'>
+        <div class="form-group">
+        <label for="email">Email</label>
+        <input
+        id='email' 
+        type="text"
+        class="form-control"
+        formControlName='email'>
+        <span class="help-block" 
+        *ngIf="myForm.get('email').invalid && myForm.get('email').touched ">
+        Please enter Email address
+    </span>
+    <span class="help-block" 
+      *ngIf="myForm.getError('exsit', 'email') ">
+      email already exsit</span>
+     
+        
+        
+        
+        
+        <label for="username">User name</label>
+        <input 
+        type="text"
+        class="form-control"
+        formControlName='username'>
+        <span class="help-block" 
+        *ngIf="myForm.get('username').invalid && myForm.get('username').touched ">
+        Please enter the user name
+    </span>
+      
+        <label for="password">password</label>
+        <input 
+        type="password"
+        class="form-control"
+        formControlName='password'>
+        <span class="help-block" 
+        *ngIf="myForm.get('password').invalid &&
+         myForm.get('password').touched ">
+        Please enter a password
+    </span>
+      
+        <label for="con-password">Confriom password</label>
+        <input 
+        type="password"
+        class="form-control"
+        formControlName='confPassword'>
+        <span class="help-block" 
+        *ngIf="myForm.get('confPassword').invalid && 
+        myForm.get('confPassword').touched ">
+        Please confriom  password
+    </span>
+    
+    <span class="help-block" 
+    *ngIf="myForm.get('password').value!== 
+    myForm.get('confPassword').value &&  myForm.get('confPassword').touched">
+    password not matching
+    
+    </span>
+            
+            
+        </div>
+        <div class="form-group">
+            <label class="radio" *ngFor='let gender of genders' >
+                <input 
+                type="radio"
+                formControlName='gender'
+                [value]="gender"
+                >
+                {{gender}}
+            </label>
+        </div>
+        <button 
+        class="btn btn-primary"
+        [disabled]="!(myForm.valid && myForm.get('password').
+        value== myForm.get('confPassword').value ) ">
+            Submit
+        </button>
+    </form>
+    <button ngClass='button'
+    (click)='back()'
+      class="btn btn-success">
+        Back 
+    </button>
+    
+   
+
+</div>
+
+
+
+
+
+  <!-- <span class="help-block" 
+      *ngIf="myForm.getError('exsit', 'ID') ">
+      ID already exsit</span>
+      -->

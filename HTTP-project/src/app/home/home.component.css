@@ -1,0 +1,21 @@
+div>div {
+    text-align: center;
+}
+/* div[] {
+    margin-left: 50%;
+} */
+
+.log-in {
+    border-radius: 20px;
+    margin: 20% 30%;
+
+
+}
+button {
+    font-size: 20px;
+}
+
+.panel {
+    border-radius: 20px;
+
+}
