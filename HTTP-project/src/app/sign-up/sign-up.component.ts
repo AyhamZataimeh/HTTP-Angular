@@ -50,8 +50,8 @@ export class SignUpComponent implements OnInit {
   submit(form:UserInfo){
     this.httpService.crateUser(form);
     this.router.navigate(['/welcome'],
-    {queryParams:{name:form.username,email:form.email},fragment:form.gender})
-    
+    {queryParams:{name:form.username,email:form.email},fragment:form.gender});
+      
   }
 
   checkEmail(control:FormControl):{[email:string]:boolean}{

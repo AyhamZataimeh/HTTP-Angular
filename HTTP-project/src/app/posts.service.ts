@@ -24,7 +24,10 @@ export class Posts{
         const users=[];
         return this.http.get('https://http-75e19-default-rtdb.firebaseio.com/users.json')
         .pipe(map(responseData=>{
+            console.log(responseData);
+
             for(const key in responseData){
+                
                 if(responseData.hasOwnProperty(key)){
                     users.push(responseData[key]);
 

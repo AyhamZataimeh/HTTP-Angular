@@ -10,12 +10,17 @@ import { Posts } from '../posts.service';
 export class UsersComponent implements OnInit {
   searchUser='';
   users=[];
+  error=null;
   constructor(private httpService:Posts) { }
 
   ngOnInit(): void {
     this.httpService.getUsers().subscribe(responsData=>{
       this.users=responsData;
+      
      
+    },error=>{
+      this.error=error.message;
+
     })
   }
 

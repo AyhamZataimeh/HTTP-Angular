@@ -7,25 +7,20 @@ export class SearchUsersPipe implements PipeTransform {
 
   transform(value: any, user:any,id:any ){
     const users=[];
-    const x=[];
     let i:number=0;
-    if(value.length===0 || user===""){
+
+    if(value.length===0 || user===''){
       return value;
     }
     for(const key of value){
-      if(key[id][i]===user[i]){
+      if(key[id].startsWith(user)){
         users.push(key);
+        
       }
-     
 
-      }
      
-
-    
-  
-    
+    }
     return users;
+   
   }
-
-
 }

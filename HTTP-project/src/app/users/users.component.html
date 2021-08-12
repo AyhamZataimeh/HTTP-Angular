@@ -12,15 +12,16 @@
             <li class="list-group-item">Name: {{user.name}}</li>
             <li class="list-group-item">Password: {{user.password}}</li>
             <li class="list-group-item">Gender: {{user.gender}}</li>
-            <!-- <li class="list-group-item"> <button
-                (click)='deleteUsers(user)'
-                 class="btn btn-danger">
-                 Delete Users
-            
-                </button></li> -->
+           
 
            
 
         </ul>
+    </div>
+    <div
+    *ngIf='error'
+     class="alert alert-danger">
+        <h2>API Error</h2>
+        <p>{{error}}</p>
     </div>
 </div>
